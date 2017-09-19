@@ -1,80 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="First CV in the world, which is stored in the blockchain!">
-    <link rel="stylesheet" type="text/css" href="css/spectre.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.css">
-
-    <title>Sergey Potekhin CV</title>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/abi.js"></script>
-    <script src="js/onload.js"></script>
-    <script src="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  </head>
-  <body style="padding-top: 30px">
-    <section class="container grid-960" id="app">
-      <div class="columns">
-        <div class="column col-6 col-md-12">
-          <h3>Hi! My name is <mark>{{ basic_data["name"] }}</mark></h3>
-          <p clss="notes">And this is the first CV in the world, built with <a href="https://www.ethereum.org/">Ethereum blockchain</a>. Every word or text section, which looks like <mark>this</mark>, is stored in the smart-contract.</p>
-          <p>BTW, this project (<a href="#">Ethereum_CV</a>) is open-source, so pull requests welcome!</p>
-          <ul>
-            <li><code>Ropsten</code> <a href="https://ropsten.etherscan.io/address/0xcfc13ef85d5c37c0b54da991289f44450c3f30d6" target="_blank">0xcfc13ef85d5c37c0b54da991289f44450c3f30d6</a></li>
-          </ul>
-
-          <h4>About me</h4>
-          <p>I'm from <mark>{{basic_data["address"]}}</mark> and I love to develop things. Now my biggest passion is blockchain technology (Ethereum, Bitcoin, etc). Also I'm professsional full-stack developer.</p>
-        </div>
-        <div class="column col-6 col-md-12">
-          <h4><mark>My education</mark></h4>
-          <div v-for="(key, value) in educations">
-            <h5>{{key.name}}</h5>
-            <time>{{key.year_start}} - {{key.year_finish}}</time>
-            <p>{{key.speciality}}</p>
-          </div>
-          <div class="column col-12 divider"></div>
-          <h4><mark>Contacts</mark></h4>
-          <p>Feel free to contact me:</p>
-          <ul>
-            <li>Email : <a :href="'mailto:' + basic_data['email']">{{basic_data["email"]}}</a></li>
-            <li>Phone : <a :href="'tel:' + basic_data['tel']">{{basic_data["tel"]}}</a></li>
-            <li>Github : <a :href="basic_data['github']" target="_blank">{{basic_data["github"]}}</a></li>
-            <li>Stackexchange : <a :href="basic_data['stackexchange']" target="_blank">{{basic_data["stackexchange"]}}</a></li>
-          </ul>
-        </div>
-        <div class="column col-12 divider"></div>
-
-        <div class="column col-12 col-md-12">
-          <h3><mark>Skills</mark></h3>
-          <div align="center" style="width:100%; heigth:100%;" id="skills" style="width : 100%"></div>
-        </div>
-        <div class="column col-12 divider"></div>
-
-        <div class="column col-5 col-md-12">
-          <h3><mark>Publications</mark></h3>
-          <div v-for="(key, data) in publications">
-            <h5><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h5>
-            {{key.desc}}
-          </div>
-        </div>
-        <div class="column col-7 col-md-12">
-          <h3><mark>Projects</mark></h3>
-          <div v-for="(key, data) in projects">
-            <h4><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h4>
-            <p>{{key.desc}}</p>
-          </div>
-        </div>
-        <div class="column col-12 divider"></div>
-      </div>
-
-    </section>
-
-  </body>
-  <script src="js/app.js"></script>
+<head>
+  <title>Voting DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+  <h1>A Simple Voting Application</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Candidate</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nick</td>
+          <td id="candidate-1"></td>
+        </tr>
+        <tr>
+          <td>Sam</td>
+          <td id="candidate-2"></td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td id="candidate-3"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="text" id="candidate" />
+  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./index.js"></script>
 </html>
