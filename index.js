@@ -6,7 +6,6 @@ var address = {
     "3" : "0x987c626359dd452d40fdbea1e29e745dcf9f485b" // Ropsten
   }
 var contract = web3.eth.contract(abi).at(address["3"]);
-contract = VotingContract.at('0x987c626359dd452d40fdbea1e29e745dcf9f485b');
 
 candidates = {"Nick": "candidate-1", "Sam": "candidate-2", "Bob": "candidate-3"}
 
