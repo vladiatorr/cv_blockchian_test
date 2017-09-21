@@ -11,7 +11,7 @@ VotingContract = web3.eth.contract(abi);
   // var current_network = web3.version.network;
   // var contract = web3.eth.contract(abi).at(address[current_network]);
 
-  var contractInstance = web3.eth.contract(abi).at(address["3"]);
+  var contractInstance = web3.eth.VotingContract(abi).at(address["3"]);
 
 //contractInstance = VotingContract.at('0x987c626359dd452d40fdbea1e29e745dcf9f485b');
 candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"}
